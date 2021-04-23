@@ -2,11 +2,11 @@ package model;
 import java.sql.*;
 import java.sql.Date;
 
-import common.DBConnectio;
+import common.DBConnection;
 
 
 public class Research {
-	private Connection con = DBConnectio.getConnection();
+	private Connection con = DBConnection.getConnection();
 	public String insertResearch(String researchcode, String researchercode, String topic, String price, String createdOn)
 	{
 		String output = "";
