@@ -63,7 +63,7 @@ public class ProductManagerService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteProduct(String productData)
 	{
-		//Convert the input string to an XML document
+		//Convert the input string to an XML doc
 		Document doc = Jsoup.parse(productData, "", Parser.xmlParser());
 
 		//Read the value from the element <productID>
