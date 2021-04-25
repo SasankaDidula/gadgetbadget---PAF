@@ -93,6 +93,60 @@ public class Research {
 		}
 		return output;
 	}
+	
+	public String readResearch(int id)
+	{
+		String output = "";
+		try
+		{
+			if (con == null)
+			{return "Error while connecting to the database for reading."; }
+			// Prepare the html table to be displayed
+			output = "<table border='1'><tr>" + 
+					"<th>Research Code</th>"+ 
+					"<th>Researcher Code</th>" +
+					"<th>Research Topic</th>" +
+					"<th>Research Price</th>" +
+					"<th>Created On</th>" +
+					"<th>Update</th>" + 
+					"<th>Remove</th></tr>";
+
+			String query = "select * from researchs where researchID="+id;
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			// iterate through the rows in the result set
+			while (rs.next())
+			{
+				String researchID = Integer.toString(rs.getInt("researchID"));
+				String researchCode = rs.getString("researchCode");
+				String researcherCode = rs.getString("researcherCode");
+				String researchTopic = rs.getString("researchTopic");
+				String researchPrice = Double.toString(rs.getDouble("researchPrice"));
+				String createdOn = rs.getDate("createdOn").toString();
+				// Add into the html table
+				output += "<tr><td>" + researchCode + "</td>";
+				output += "<td>" + researcherCode + "</td>";
+				output += "<td>" + researchTopic + "</td>";
+				output += "<td>" + researchPrice + "</td>";
+				output += "<td>" + createdOn + "</td>";
+				// buttons
+				output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>"
+								+ "<td><form method='post' action='researchs.jsp'>"
+								+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
+										+ "<input name='researchID' type='hidden' value='" + researchID
+										+ "'>" + "</form></td></tr>";
+			}
+			// Complete the html table
+			output += "</table>";
+		}
+		catch (Exception e)
+		{
+			output = "Error while reading the researchs.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+	
 	public String updateResearch(String ID, String researchcode, String researchercode, String topic, String price, String createdOn)
 
 	{
