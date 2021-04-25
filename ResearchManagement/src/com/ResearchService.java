@@ -18,6 +18,14 @@ import org.jsoup.nodes.Document;
 public class ResearchService {
 
 	Research researchObj = new Research();
+	
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.TEXT_HTML)
+	public String readResearch(@PathParam("id") int id)
+	{
+		return researchObj.readResearch(id);
+	}
 
 	@GET
 	@Path("/")
