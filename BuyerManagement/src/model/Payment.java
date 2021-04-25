@@ -142,6 +142,7 @@ public class Payment {
 			preparedStmt.setInt(1, Integer.parseInt(paymentID));
 			// execute the statement
 			preparedStmt.execute();
+			// display output
 			output = "Deleted successfully";
 		}
 		catch (Exception e)
