@@ -57,7 +57,7 @@ public class CustomerService {
 		//Convert the input string to a JSON object
 		JsonObject customerObj = new JsonParser().parse(customerData).getAsJsonObject();
 		//Read the values from the JSON object
-		String customerId = customerObj.get("customerId").getAsString();
+		String customerId = customerObj.get("customerID").getAsString();
 		String customerName = customerObj.get("customerName").getAsString();
 		String customerType = customerObj.get("customerType").getAsString();
 		String addedDate = customerObj.get("addedDate").getAsString();
