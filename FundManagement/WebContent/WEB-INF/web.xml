@@ -20,7 +20,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Jersey Web Application</servlet-name>
-		<url-pattern>/FundService/*</url-pattern>
+		<url-pattern>/FundingService/*</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
