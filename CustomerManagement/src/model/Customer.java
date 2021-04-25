@@ -106,7 +106,7 @@ public class Customer {
 		return output;
 	}
 	public String updateCustomer(String ID, String name, String type, String date, String email, String password)
-
+	
 	{
 		String output = "";
 		try
