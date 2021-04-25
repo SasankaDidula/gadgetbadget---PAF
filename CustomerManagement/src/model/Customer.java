@@ -81,7 +81,9 @@ public class Customer {
 				String addedDate = r.getString("addedDate");
 				String email = r.getString("email");
 				// Add into the html table
-				output += "<tr><td>" + customerName + "</td>";
+				
+				output += "<tr><td>" + customerID + "</td>";
+				output += "<td>" + customerName + "</td>";
 				output += "<td>" + customerType + "</td>";
 				output += "<td>" + addedDate + "</td>";
 				output += "<td>" + email + "</td>";
